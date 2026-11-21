@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALQUILER13 — Historial</title>
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header>
+<h1>ALQUILER13 — Historial</h1>
+<p>Consulta del historial completo de alquileres y reportes básicos.</p>
+<nav aria-label="Navegación principal">
+<ul>
+<li><a href="../index.html">Inicio</a></li>
+<li><a href="vehiculos.html">Vehículos</a></li>
+<li><a href="clientes.html">Clientes</a></li>
+<li><a href="reservas.html">Reservas</a></li>
+<li><a href="devoluciones.html">Devoluciones</a></li>
+<li><a href="historial.html" aria-current="page">Historial</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section aria-labelledby="titulo-resumen">
+<h2 id="titulo-resumen">Reporte básico</h2>
+<aside data-alertas-resumen aria-live="polite"></aside>
+<ul class="tarjetas">
+<li class="tarjeta"><h3>Total reservas</h3><output data-t-total>0</output></li>
+<li class="tarjeta"><h3>Activas</h3><output data-t-activas>0</output></li>
+<li class="tarjeta"><h3>Completadas</h3><output data-t-completadas>0</output></li>
+<li class="tarjeta"><h3>Canceladas</h3><output data-t-canceladas>0</output></li>
+</ul>
+<h3>Últimas reservas registradas</h3>
+<ul data-ultimas class="tarjetas"></ul>
+</section>
+<section aria-labelledby="titulo-filtros">
+<h2 id="titulo-filtros">Historial completo</h2>
+<aside data-alertas aria-live="polite"></aside>
+<form id="form-historial">
+<fieldset>
+<legend>Filtros opcionales</legend>
+<label>Estado
+<select id="filtro-h-estado" name="estado">
+<option value="">Todos</option>
+<option value="activa">Activa</option>
+<option value="completada">Completada</option>
+<option value="cancelada">Cancelada</option>
+</select>
+</label>
+<label>Desde
+<input type="date" id="filtro-desde" name="desde">
+</label>
+<label>Hasta
+<input type="date" id="filtro-hasta" name="hasta">
+</label>
+</fieldset>
+<p class="acciones-formulario">
+<button type="submit">Filtrar</button>
+<button type="reset">Limpiar</button>
+</p>
+</form>
+</section>
+<section class="tabla-contenedor" aria-labelledby="titulo-tabla">
+<h2 id="titulo-tabla">Alquileres</h2>
+<table>
+<caption>Historial con cliente y vehículo</caption>
+<thead>
+<tr>
+<th scope="col">Identificador</th>
+<th scope="col">Cliente</th>
+<th scope="col">Vehículo</th>
+<th scope="col">Inicio</th>
+<th scope="col">Fin</th>
+<th scope="col">Devolución real</th>
+<th scope="col">Estado</th>
+</tr>
+</thead>
+<tbody id="tabla-historial"></tbody>
+</table>
+<p id="sin-historial" hidden>No hay registros para esos filtros.</p>
+</section>
+<section aria-labelledby="titulo-detalle">
+<h2 id="titulo-detalle">Historial por vehículo o cliente</h2>
+<aside data-alertas-detalle aria-live="polite"></aside>
+<form id="form-vehiculo-h">
+<fieldset>
+<legend>Por vehículo</legend>
+<label>Identificador del vehículo
+<input type="number" id="campo-vehiculo-id" name="vehiculo_id" min="1" required>
+</label>
+</fieldset>
+<p class="acciones-formulario">
+<button type="submit">Consultar vehículo</button>
+</p>
+</form>
+<form id="form-cliente-h">
+<fieldset>
+<legend>Por cliente</legend>
+<label>Identificador del cliente
+<input type="number" id="campo-cliente-id" name="cliente_id" min="1" required>
+</label>
+</fieldset>
+<p class="acciones-formulario">
+<button type="submit">Consultar cliente</button>
+</p>
+</form>
+<h3 data-detalle-titulo hidden>Detalle</h3>
+<dl data-detalle hidden></dl>
+</section>
+</main>
+<footer>
+<p><small>ALQUILER13 — Microservicios de alquiler de vehículos.</small></p>
+</footer>
+<script type="module" src="../js/pages/HistorialPageController.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALQUILER13 — Reservas</title>
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header>
+<h1>ALQUILER13 — Reservas</h1>
+<p>Creación de reservas y cancelación de reservas activas.</p>
+<nav aria-label="Navegación principal">
+<ul>
+<li><a href="../index.html">Inicio</a></li>
+<li><a href="vehiculos.html">Vehículos</a></li>
+<li><a href="clientes.html">Clientes</a></li>
+<li><a href="reservas.html" aria-current="page">Reservas</a></li>
+<li><a href="devoluciones.html">Devoluciones</a></li>
+<li><a href="historial.html">Historial</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section aria-labelledby="titulo-formulario">
+<h2 id="titulo-formulario">Crear reserva</h2>
+<aside data-alertas aria-live="polite"></aside>
+<form id="form-reserva">
+<fieldset>
+<legend>Datos de la reserva</legend>
+<label>Cliente
+<select id="campo-cliente" name="cliente_id" required></select>
+</label>
+<label>Vehículo
+<select id="campo-vehiculo" name="vehiculo_id" required></select>
+</label>
+<label>Fecha de inicio
+<input type="date" id="campo-inicio" name="fecha_inicio" required>
+</label>
+<label>Fecha de fin
+<input type="date" id="campo-fin" name="fecha_fin" required>
+</label>
+</fieldset>
+<p class="acciones-formulario">
+<button type="submit">Reservar</button>
+<button type="reset">Limpiar</button>
+</p>
+</form>
+</section>
+<section aria-labelledby="titulo-listado">
+<h2 id="titulo-listado">Reservas registradas</h2>
+<form id="form-filtro">
+<fieldset>
+<legend>Filtrar por estado</legend>
+<label>Estado
+<select id="filtro-estado" name="estado">
+<option value="">Todas</option>
+<option value="activa">Activa</option>
+<option value="completada">Completada</option>
+<option value="cancelada">Cancelada</option>
+</select>
+</label>
+</fieldset>
+</form>
+</section>
+<section class="tabla-contenedor" aria-labelledby="titulo-tabla">
+<h2 id="titulo-tabla">Listado de reservas</h2>
+<table>
+<caption>Reservas ordenadas de la más reciente a la más antigua</caption>
+<thead>
+<tr>
+<th scope="col">Identificador</th>
+<th scope="col">Cliente</th>
+<th scope="col">Vehículo</th>
+<th scope="col">Inicio</th>
+<th scope="col">Fin</th>
+<th scope="col">Devolución real</th>
+<th scope="col">Estado</th>
+<th scope="col">Acciones</th>
+</tr>
+</thead>
+<tbody id="tabla-reservas"></tbody>
+</table>
+<p id="sin-registros" hidden>No hay reservas registradas.</p>
+</section>
+</main>
+<dialog id="dialogo-confirmar">
+<p id="dialogo-mensaje"></p>
+<form method="dialog">
+<button type="submit" value="cancelar">Cancelar</button>
+<button type="submit" value="aceptar">Confirmar</button>
+</form>
+</dialog>
+<footer>
+<p><small>ALQUILER13 — Microservicios de alquiler de vehículos.</small></p>
+</footer>
+<script type="module" src="../js/pages/ReservasPageController.js"></script>
+</body>
+</html>

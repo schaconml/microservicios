@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALQUILER13 — Panel principal</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+<h1>ALQUILER13 — Alquiler de vehículos</h1>
+<p>Panel principal con el estado de la flota y consulta rápida de disponibilidad.</p>
+<nav aria-label="Navegación principal">
+<ul>
+<li><a href="index.html" aria-current="page">Inicio</a></li>
+<li><a href="pages/vehiculos.html">Vehículos</a></li>
+<li><a href="pages/clientes.html">Clientes</a></li>
+<li><a href="pages/reservas.html">Reservas</a></li>
+<li><a href="pages/devoluciones.html">Devoluciones</a></li>
+<li><a href="pages/historial.html">Historial</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section aria-labelledby="titulo-flota">
+<h2 id="titulo-flota">Estado de la flota</h2>
+<aside data-alertas-flota aria-live="polite"></aside>
+<dl id="resumen-flota">
+<dt>Total de vehículos</dt>
+<dd><output data-flota-total>0</output></dd>
+<dt>Disponibles</dt>
+<dd><output data-flota-disponibles>0</output></dd>
+<dt>Alquilados</dt>
+<dd><output data-flota-alquilados>0</output></dd>
+<dt>En mantenimiento</dt>
+<dd><output data-flota-mantenimiento>0</output></dd>
+</dl>
+<h3>Disponibles por categoría</h3>
+<ul data-categorias class="tarjetas"></ul>
+</section>
+<section aria-labelledby="titulo-historial">
+<h2 id="titulo-historial">Resumen de alquileres</h2>
+<aside data-alertas-historial aria-live="polite"></aside>
+<ul class="tarjetas">
+<li class="tarjeta"><h3>Total reservas</h3><output data-h-total>0</output></li>
+<li class="tarjeta"><h3>Activas</h3><output data-h-activas>0</output></li>
+<li class="tarjeta"><h3>Completadas</h3><output data-h-completadas>0</output></li>
+<li class="tarjeta"><h3>Canceladas</h3><output data-h-canceladas>0</output></li>
+</ul>
+</section>
+<section aria-labelledby="titulo-consulta">
+<h2 id="titulo-consulta">Consulta rápida de disponibilidad</h2>
+<aside data-alertas aria-live="polite"></aside>
+<form id="form-disponibilidad">
+<fieldset>
+<legend>Criterios de búsqueda</legend>
+<label>Categoría
+<input type="text" id="campo-categoria" name="categoria" maxlength="50" placeholder="Sedan">
+</label>
+<label>Fecha de inicio
+<input type="date" id="campo-desde" name="fecha_inicio">
+</label>
+<label>Fecha de fin
+<input type="date" id="campo-hasta" name="fecha_fin">
+</label>
+</fieldset>
+<p class="acciones-formulario">
+<button type="submit">Consultar</button>
+<button type="reset">Limpiar</button>
+</p>
+</form>
+</section>
+<section class="tabla-contenedor" aria-labelledby="titulo-resultados">
+<h2 id="titulo-resultados">Vehículos disponibles</h2>
+<table>
+<caption>Resultado de la consulta rápida</caption>
+<thead>
+<tr>
+<th scope="col">Placa informativa</th>
+<th scope="col">Marca</th>
+<th scope="col">Modelo</th>
+<th scope="col">Año</th>
+<th scope="col">Categoría</th>
+<th scope="col">Estado</th>
+</tr>
+</thead>
+<tbody id="tabla-resultados"></tbody>
+</table>
+<p id="sin-resultados" hidden>No hay vehículos disponibles con esos criterios.</p>
+</section>
+</main>
+<footer>
+<p><small>ALQUILER13 — Microservicios de alquiler de vehículos.</small></p>
+</footer>
+<script type="module" src="js/pages/DashboardController.js"></script>
+</body>
+</html>

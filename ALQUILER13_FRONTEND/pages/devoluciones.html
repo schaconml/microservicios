@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALQUILER13 — Devoluciones</title>
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header>
+<h1>ALQUILER13 — Devoluciones</h1>
+<p>Registro de devoluciones de reservas activas.</p>
+<nav aria-label="Navegación principal">
+<ul>
+<li><a href="../index.html">Inicio</a></li>
+<li><a href="vehiculos.html">Vehículos</a></li>
+<li><a href="clientes.html">Clientes</a></li>
+<li><a href="reservas.html">Reservas</a></li>
+<li><a href="devoluciones.html" aria-current="page">Devoluciones</a></li>
+<li><a href="historial.html">Historial</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section aria-labelledby="titulo-formulario">
+<h2 id="titulo-formulario">Registrar devolución</h2>
+<aside data-alertas aria-live="polite"></aside>
+<form id="form-devolucion">
+<fieldset>
+<legend>Datos de la devolución</legend>
+<label>Reserva activa
+<select id="campo-reserva" name="reserva_id" required></select>
+</label>
+<label>Fecha de devolución real
+<input type="date" id="campo-fecha" name="fecha_devolucion_real">
+</label>
+<label>Estado del vehículo
+<select id="campo-estado-vehiculo" name="estado_vehiculo">
+<option value="disponible">Disponible</option>
+<option value="mantenimiento">Mantenimiento</option>
+</select>
+</label>
+</fieldset>
+<p class="acciones-formulario">
+<button type="submit">Registrar</button>
+<button type="reset">Limpiar</button>
+</p>
+</form>
+</section>
+<section class="tabla-contenedor" aria-labelledby="titulo-pendientes">
+<h2 id="titulo-pendientes">Reservas pendientes de devolución</h2>
+<table>
+<caption>Reservas activas que aún no se devuelven</caption>
+<thead>
+<tr>
+<th scope="col">Identificador</th>
+<th scope="col">Cliente</th>
+<th scope="col">Vehículo</th>
+<th scope="col">Fin previsto</th>
+<th scope="col">Acciones</th>
+</tr>
+</thead>
+<tbody id="tabla-pendientes"></tbody>
+</table>
+<p id="sin-pendientes" hidden>No hay reservas pendientes de devolución.</p>
+</section>
+<section class="tabla-contenedor" aria-labelledby="titulo-tabla">
+<h2 id="titulo-tabla">Devoluciones registradas</h2>
+<table>
+<caption>Reservas completadas, la más reciente primero</caption>
+<thead>
+<tr>
+<th scope="col">Identificador</th>
+<th scope="col">Cliente</th>
+<th scope="col">Vehículo</th>
+<th scope="col">Devolución real</th>
+<th scope="col">Estado del vehículo</th>
+</tr>
+</thead>
+<tbody id="tabla-devoluciones"></tbody>
+</table>
+<p id="sin-registros" hidden>No hay devoluciones registradas.</p>
+</section>
+</main>
+<footer>
+<p><small>ALQUILER13 — Microservicios de alquiler de vehículos.</small></p>
+</footer>
+<script type="module" src="../js/pages/DevolucionesPageController.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALQUILER13 — Vehículos</title>
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header>
+<h1>ALQUILER13 — Vehículos</h1>
+<p>Registro y mantenimiento de la flota de vehículos.</p>
+<nav aria-label="Navegación principal">
+<ul>
+<li><a href="../index.html">Inicio</a></li>
+<li><a href="vehiculos.html" aria-current="page">Vehículos</a></li>
+<li><a href="clientes.html">Clientes</a></li>
+<li><a href="reservas.html">Reservas</a></li>
+<li><a href="devoluciones.html">Devoluciones</a></li>
+<li><a href="historial.html">Historial</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section aria-labelledby="titulo-formulario">
+<h2 id="titulo-formulario">Registrar vehículo</h2>
+<aside data-alertas aria-live="polite"></aside>
+<form id="form-vehiculo">
+<fieldset>
+<legend>Datos del vehículo</legend>
+<input type="hidden" id="vehiculo-id" name="id">
+<label>Marca
+<input type="text" id="campo-marca" name="marca" maxlength="100" required placeholder="Toyota">
+</label>
+<label>Modelo
+<input type="text" id="campo-modelo" name="modelo" maxlength="100" required placeholder="Corolla">
+</label>
+<label>Año
+<input type="number" id="campo-anio" name="anio" min="1901" max="2155" required placeholder="2024">
+</label>
+<label>Categoría
+<input type="text" id="campo-categoria" name="categoria" maxlength="50" placeholder="Sedan">
+</label>
+<label>Estado inicial
+<select id="campo-estado" name="estado">
+<option value="disponible">Disponible</option>
+<option value="mantenimiento">Mantenimiento</option>
+</select>
+</label>
+</fieldset>
+<p class="acciones-formulario">
+<button type="submit">Guardar</button>
+<button type="reset">Limpiar</button>
+</p>
+</form>
+</section>
+<section aria-labelledby="titulo-listado">
+<h2 id="titulo-listado">Flota registrada</h2>
+<form id="form-filtro">
+<fieldset>
+<legend>Filtrar por estado</legend>
+<label>Estado
+<select id="filtro-estado" name="estado">
+<option value="">Todos</option>
+<option value="disponible">Disponible</option>
+<option value="alquilado">Alquilado</option>
+<option value="mantenimiento">Mantenimiento</option>
+</select>
+</label>
+</fieldset>
+</form>
+</section>
+<section class="tabla-contenedor" aria-labelledby="titulo-tabla">
+<h2 id="titulo-tabla">Listado de vehículos</h2>
+<table>
+<caption>Vehículos ordenados del más reciente al más antiguo</caption>
+<thead>
+<tr>
+<th scope="col">Identificador</th>
+<th scope="col">Marca</th>
+<th scope="col">Modelo</th>
+<th scope="col">Año</th>
+<th scope="col">Categoría</th>
+<th scope="col">Estado</th>
+<th scope="col">Acciones</th>
+</tr>
+</thead>
+<tbody id="tabla-vehiculos"></tbody>
+</table>
+<p id="sin-registros" hidden>No hay vehículos registrados.</p>
+</section>
+</main>
+<dialog id="dialogo-confirmar">
+<p id="dialogo-mensaje"></p>
+<form method="dialog">
+<button type="submit" value="cancelar">Cancelar</button>
+<button type="submit" value="aceptar">Confirmar</button>
+</form>
+</dialog>
+<footer>
+<p><small>ALQUILER13 — Microservicios de alquiler de vehículos.</small></p>
+</footer>
+<script type="module" src="../js/pages/VehiculosPageController.js"></script>
+</body>
+</html>

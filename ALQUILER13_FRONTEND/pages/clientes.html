@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALQUILER13 — Clientes</title>
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header>
+<h1>ALQUILER13 — Clientes</h1>
+<p>Registro y mantenimiento de los clientes del alquiler.</p>
+<nav aria-label="Navegación principal">
+<ul>
+<li><a href="../index.html">Inicio</a></li>
+<li><a href="vehiculos.html">Vehículos</a></li>
+<li><a href="clientes.html" aria-current="page">Clientes</a></li>
+<li><a href="reservas.html">Reservas</a></li>
+<li><a href="devoluciones.html">Devoluciones</a></li>
+<li><a href="historial.html">Historial</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section aria-labelledby="titulo-formulario">
+<h2 id="titulo-formulario">Registrar cliente</h2>
+<aside data-alertas aria-live="polite"></aside>
+<form id="form-cliente">
+<fieldset>
+<legend>Datos del cliente</legend>
+<input type="hidden" id="cliente-id" name="id">
+<label>Nombre
+<input type="text" id="campo-nombre" name="nombre" maxlength="150" required placeholder="Ana Gómez">
+</label>
+<label>Teléfono
+<input type="tel" id="campo-telefono" name="telefono" maxlength="50" placeholder="3001234567">
+</label>
+<label>Correo
+<input type="email" id="campo-correo" name="correo" maxlength="100" placeholder="ana@ejemplo.com">
+</label>
+<label>Número de licencia
+<input type="text" id="campo-licencia" name="numero_licencia" maxlength="50" required placeholder="LIC-987654">
+</label>
+</fieldset>
+<p class="acciones-formulario">
+<button type="submit">Guardar</button>
+<button type="reset">Limpiar</button>
+</p>
+</form>
+</section>
+<section class="tabla-contenedor" aria-labelledby="titulo-tabla">
+<h2 id="titulo-tabla">Listado de clientes</h2>
+<table>
+<caption>Clientes ordenados del más reciente al más antiguo</caption>
+<thead>
+<tr>
+<th scope="col">Identificador</th>
+<th scope="col">Nombre</th>
+<th scope="col">Teléfono</th>
+<th scope="col">Correo</th>
+<th scope="col">Licencia</th>
+<th scope="col">Acciones</th>
+</tr>
+</thead>
+<tbody id="tabla-clientes"></tbody>
+</table>
+<p id="sin-registros" hidden>No hay clientes registrados.</p>
+</section>
+</main>
+<dialog id="dialogo-confirmar">
+<p id="dialogo-mensaje"></p>
+<form method="dialog">
+<button type="submit" value="cancelar">Cancelar</button>
+<button type="submit" value="aceptar">Confirmar</button>
+</form>
+</dialog>
+<footer>
+<p><small>ALQUILER13 — Microservicios de alquiler de vehículos.</small></p>
+</footer>
+<script type="module" src="../js/pages/ClientesPageController.js"></script>
+</body>
+</html>
